@@ -44,12 +44,13 @@ function Column(name) {
  Column.prototype = {
     addCard: function(card) {
     this.element.querySelector('ul').appendChild(card.element);
-}
- }
+},
+ 
     
     removeColumn: function() {
     this.element.parentNode.removeChild(this.element);
-};
+}
+     };
 
 
 function Card(description) {
@@ -58,7 +59,7 @@ function Card(description) {
     this.id = randomString();
     this.description = description;
     this.element = generateTemplate('card-template', {description: this.description }, 'li');
-}
+
     
     this.element.querySelector('.card').addEventListener('click', function (event) {
         event.stopPropagation();
@@ -67,7 +68,8 @@ function Card(description) {
             self.removeCard();
         }
     });
-
+}
+    
 Card.prototype = {
     removeCard: function() {
         this.element.parentNode.removeChild(this.element);
